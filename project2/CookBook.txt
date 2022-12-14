@@ -1,0 +1,56 @@
+1. Создать проект Ангуляр:
+**/ng new nameProject/**
+
+
+2. Перейти в папку с проектом:
+**/cd nameProject/**
+
+
+3. Запустить сервер:
+**/ng serve/**
+
+
+4. Утсановить angular Materials:
+**/ng add @angular/material **/
+
+5. Перезагрузить сервер.
+
+6. Перейти в : 
+src => app => app.component.html => Очистить этот фаил.
+(Для проверки написать **<h1>Privet kak dela?</h1>**)
+
+7. Создаем через консоль еще 1 репазиторий для таблицы:
+**/ 
+
+ng generate @angular/material:material-table
+
+material table в данном случае может меняться в зависимости от необходимой таблицы
+(**Варианты таблиц смотреть на angular/material**)
+    ПОСЛЕ НАПИСАТЬ НАЗВАНИЕ ВО ВСПЛЫВАЮЩЕМ ОКНЕ КОНСОЛИ
+
+8. Проверить данные тамблицы. 
+    а) В файле data-table.component.ts должен быть массив с данными таблицы [name, id, ...]
+    б) В файле app.modules.ts должны подгрузиться модули
+   ***** **************************************************************
+   @NgModule({
+  declarations: [
+    AppComponent,
+    DataTableComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
+  ],
+  *********************************************************************
+  в) В файле app.component.html прописать selector из файла data.table.component.ts
+  ****************************************************************
+  @Component({
+  selector: 'app-data-table',
+  templateUrl: './data-table.component.html',
+  styleUrls: ['./data-table.component.css']
+})
+ ******************************************************************
