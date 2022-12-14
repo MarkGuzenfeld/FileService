@@ -1,20 +1,6 @@
 <p>buttons works!</p>
 <div class="example-button-row">
-    <button mat-fab matTooltip="Primary" color="primary" aria-label="Example fab with a heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-fab matTooltip="Accent" color="accent" aria-label="Example fab with a heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-fab matTooltip="Warn" color="warn" aria-label="Example fab with a heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <div matTooltip="Disabled" class="example-disabled">
-      <button mat-fab disabled aria-label="Example fab with a heart icon">
-        <mat-icon>favorite</mat-icon>
-      </button>
-    </div>
-    <a mat-fab matTooltip="Link" routerLink="." aria-label="Example fab with a heart icon">
-      <mat-icon>favorite</mat-icon>
-    </a>
+    <button mat-raised-button color="warn" (click)="delete($event)">Delete</button>
+    <button mat-raised-button color="accent" (click)="add($event)">Add</button>
+    <button mat-raised-button color="primary" (click)="move($event)">Move</button>
   </div>

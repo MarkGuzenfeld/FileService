@@ -84,6 +84,23 @@ imports: [
   ],
   **********************************************************
 
-  13. В buttons.component.html добавляем код с сайта angular/material
+  13. В buttons.component.html добавляем код с сайта angular/material 
+    c вкладки HTML
 
+14. добавляем $event на кнопки
+    а) В файле button.component.html прописываем евент
+    **************************************************
+    <button mat-raised-button color="warn" (click)="delete($event)">Delete</button>
+    **************************************************
+    б) В файле buttons.component.ts прописываем функцию
+    ***************************************************
+    deleteOne = new EventEmitter<any>();// Зачем нужно <any> ???
+delete($event: MouseEvent){
+  console.log('Working delete');
+}
+    ****************************************************
+    в) Повторяем для каждой кнопки.
+
+
+15. Добавляем собственные заголовки для столбцов таблицы
   ПОКА ВСЁ РАБОТАЕТ! (:)
