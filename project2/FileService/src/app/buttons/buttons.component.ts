@@ -18,4 +18,8 @@ MoveOne = new EventEmitter<any>();
 move($event: MouseEvent){
   console.log('Working move');
 }
+CopyOne = new EventEmitter<any>();
+copy($event: MouseEvent){
+  console.log('Working copy');
+}
 }
