@@ -19,7 +19,7 @@
 src => app => app.component.html => Очистить этот фаил.
 (Для проверки написать **<h1>Privet kak dela?</h1>**)
 
-7. Создаем через консоль еще 1 репазиторий для таблицы:
+7. Создаем через консоль еще 1 директорию для таблицы:
 **/ 
 
 ng generate @angular/material:material-table
@@ -54,3 +54,36 @@ material table в данном случае может меняться в за�
   styleUrls: ['./data-table.component.css']
 })
  ******************************************************************
+
+ 9. !!!TABLE IS CREATED!!!
+
+
+10. Создаем директоиию для кнопок:
+/** ng g c buttuns **/
+
+11. Прописываем selector в app.component.html
+
+12. В app.modules.ts необходимо сделать импорт с сайта, вкладка API
+******************************************************
+
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+*******************************************************
+!!! И ДОБАВИТЬ В import MatButtonModule AND MatIconModule !!!
+
+*************************************************************
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatButtonModule,
+    MatIconModule
+  ],
+  **********************************************************
+
+  13. В buttons.component.html добавляем код с сайта angular/material
+
+  ПОКА ВСЁ РАБОТАЕТ! (:)
