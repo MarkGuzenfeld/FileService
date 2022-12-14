@@ -11,12 +11,15 @@ import { MatSortModule } from '@angular/material/sort';
 import { ButtonsComponent } from './buttons/buttons.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     DataTableComponent,
-    ButtonsComponent
+    ButtonsComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatPaginatorModule,
     MatSortModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

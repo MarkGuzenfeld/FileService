@@ -9,6 +9,7 @@ import { DataTableDataSource, DataTableItem } from './data-table-datasource';
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.css']
 })
+
 export class DataTableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -16,7 +17,7 @@ export class DataTableComponent implements AfterViewInit {
   dataSource: DataTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = [ 'icon','id', 'name',];
+  displayedColumns = [ 'icon','id', 'name','choose'];
 
   constructor() {
     this.dataSource = new DataTableDataSource();
