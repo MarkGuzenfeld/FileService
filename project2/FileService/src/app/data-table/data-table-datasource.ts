@@ -13,22 +13,24 @@ export interface DataTableItem {
   extension: string,
   size: number,
   isFolder: boolean,
-
- 
+  time: Date;
+  
 }
 
 // TODO: replace this with real data from your application
-const EXAMPLE_DATA: DataTableItem[] = [
-  { id: 1, name: 'Hydrogen', extension: 'txt',size:6565, isFolder:false},
-  { id: 2, name: 'Helium', extension: 'txt',size:6565, isFolder:false },
-  { id: 3, name: 'Lithium' , extension: 'txt',size:6565, isFolder:false},
-  { id: 4, name: 'Beryllium', extension: 'txt',size:6565, isFolder:false },
-  { id: 5, name: 'Boron' , extension: 'txt',size:6565, isFolder:false},
-  { id: 6, name: 'Carbon' , extension: 'txt',size:6565, isFolder:false},
-  { id: 7, name: 'Nitrogen' , extension: 'txt',size:6565, isFolder:false},
-  { id: 8, name: 'Oxygen' , extension: 'txt',size:6565, isFolder:false},
-  { id: 9, name: 'Fluorine' , extension: 'txt',size:6565, isFolder:false},
-  { id: 10, name: 'Neon', extension: 'txt',size:6565, isFolder:false },
+const EXAMPLE_DATA:
+DataTableItem[] = [
+  
+  { id: 1, name: 'Hydrogen', extension: 'txt',size:6565, isFolder:false, time: new Date},
+  { id: 2, name: 'Helium', extension: 'txt',size:6565, isFolder:false, time: new Date },
+  { id: 3, name: 'Lithium' , extension: 'txt',size:6565, isFolder:false, time: new Date},
+  { id: 4, name: 'Beryllium', extension: 'txt',size:6565, isFolder:false , time: new Date},
+  { id: 5, name: 'Boron' , extension: 'txt',size:6565, isFolder:false, time: new Date},
+  { id: 6, name: 'Carbon' , extension: 'txt',size:6565, isFolder:false, time: new Date},
+  { id: 7, name: 'Nitrogen' , extension: 'txt',size:6565, isFolder:false, time: new Date},
+  { id: 8, name: 'Oxygen' , extension: 'txt',size:6565, isFolder:false, time: new Date},
+  { id: 9, name: 'Fluorine' , extension: 'txt',size:6565, isFolder:false, time: new Date},
+  { id: 10, name: 'Neon', extension: 'txt',size:6565, isFolder:false , time: new Date},
 ];
 
 /**
@@ -40,7 +42,10 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
   data: DataTableItem[] = EXAMPLE_DATA;
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
- 
+  // getTime(row: DataTableItem): string {
+  //   return row.time.toLocaleString()
+  // }
+  
   constructor() {
     super();
     
@@ -107,8 +112,4 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
 /** Simple sort comparator for example ID/Name columns (for client-side sorting). */
 function compare(a: string | number, b: string | number, isAsc: boolean): number {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
-}
-function oneDate(creationDate:number) {
-  const date = new Date();
-  return date
 }

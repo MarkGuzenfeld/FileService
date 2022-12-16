@@ -15,14 +15,14 @@ export class DataTableComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<DataTableItem>;
   dataSource: DataTableDataSource;
+  
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = [ 'choose', 'icon','id', 'name', 'extension','size'];
-
+  displayedColumns = [ 'choose', 'icon','id', 'name', 'extension','size','time'];
   constructor() {
     this.dataSource = new DataTableDataSource();
   }
-
+  
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;

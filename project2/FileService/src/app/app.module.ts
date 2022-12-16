@@ -12,6 +12,7 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { Table2Component } from './table2/table2.component';
 
 
 
@@ -20,6 +21,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AppComponent,
     DataTableComponent,
     ButtonsComponent,
+    Table2Component,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatSortModule,
     MatButtonModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
