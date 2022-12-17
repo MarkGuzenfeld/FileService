@@ -106,5 +106,34 @@ delete($event: MouseEvent){
 
 
 
-16
+16. ДОБАВЛЕНИЕ ДАТЫ В ИНМОРТИРОВАННУЮ ТАБЛИЦУ ИЗ АНГУЛЯР МАТЕРИАЛС
+  а) В DataTableDataSource в : 
+  export interface DataTableItem {
+  name: string;
+  id: number;
+  extension: string,
+  size: number,
+  isFolder: boolean,
+ !!!!!!!!!!!!! time: Date, !!!!!!!!!
+  path: string
+}
+  б) В массиве объектов DataTableItem добавляем 
+  time: new  Date к каждму пнукту
+  в) в файле HTML :
+  <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Creat Date</th>
+      <td mat-cell *matCellDef="let row">{{row.time.toUTCString()}}</td>
+    </ng-container>
+    ОБЯЗАТЕЛЬНО В СТРОКЕ ng-container matColumnDef="time"> ПРОПИСАТЬ ПРАВИЛЬНОЕ ЗНАЧЕНИЕ ИЗ МАССИВА
+    ИНАЧЕ РАБОТАТЬ НЕ БУДЕТ
+
+
+  17. Создаем навигационное меню ng g c navigation
+
+  18. В HTML: 
+ 
+  <div>
+    <button mat-button><mat-icon>home</mat-icon></button>
+  </div>
+  
   ПОКА ВСЁ РАБОТАЕТ! (:)

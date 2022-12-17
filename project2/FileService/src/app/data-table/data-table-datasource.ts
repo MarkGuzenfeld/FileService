@@ -13,7 +13,8 @@ export interface DataTableItem {
   extension: string,
   size: number,
   isFolder: boolean,
-  time: Date;
+  time: Date,
+  path: string
   
 }
 
@@ -21,16 +22,16 @@ export interface DataTableItem {
 const EXAMPLE_DATA:
 DataTableItem[] = [
   
-  { id: 1, name: 'Hydrogen', extension: 'txt',size:6565, isFolder:false, time: new Date},
-  { id: 2, name: 'Helium', extension: 'txt',size:6565, isFolder:false, time: new Date },
-  { id: 3, name: 'Lithium' , extension: 'txt',size:6565, isFolder:false, time: new Date},
-  { id: 4, name: 'Beryllium', extension: 'txt',size:6565, isFolder:false , time: new Date},
-  { id: 5, name: 'Boron' , extension: 'txt',size:6565, isFolder:false, time: new Date},
-  { id: 6, name: 'Carbon' , extension: 'txt',size:6565, isFolder:false, time: new Date},
-  { id: 7, name: 'Nitrogen' , extension: 'txt',size:6565, isFolder:false, time: new Date},
-  { id: 8, name: 'Oxygen' , extension: 'txt',size:6565, isFolder:false, time: new Date},
-  { id: 9, name: 'Fluorine' , extension: 'txt',size:6565, isFolder:false, time: new Date},
-  { id: 10, name: 'Neon', extension: 'txt',size:6565, isFolder:false , time: new Date},
+  { id: 1, name: 'Hydrogen', extension: 'txt',size:6565, path:'/home/me/papka', isFolder:true, time: new  Date},
+  { id: 2, name: 'Helium', extension: 'txt',size:6565, path:'/home/me/papka', isFolder:false, time: new  Date },
+  { id: 3, name: 'Lithium' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
+  { id: 4, name: 'Beryllium', extension: 'txt',size:6565, path:'/home/me/papka',isFolder:false , time: new  Date},
+  { id: 5, name: 'Boron' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
+  { id: 6, name: 'Carbon' , extension: 'txt',size:6565, path:'/home/me/papka',isFolder:false, time: new  Date},
+  { id: 7, name: 'Nitrogen' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
+  { id: 8, name: 'Oxygen' , extension: 'txt',size:6565, path:'/home/me/papka',isFolder:false, time: new  Date},
+  { id: 9, name: 'Fluorine' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
+  { id: 10, name: 'Neon', extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false , time: new  Date},
 ];
 
 /**
@@ -42,10 +43,14 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
   data: DataTableItem[] = EXAMPLE_DATA;
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
-  // getTime(row: DataTableItem): string {
-  //   return row.time.toLocaleString()
-  // }
-  
+  openFile( row: DataTableItem){
+   if (row.isFolder){
+     return this.openFolder(row)
+   } else{
+    return []
+   }
+  }
+ 
   constructor() {
     super();
     
@@ -80,6 +85,22 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
   * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
  */
+  private openFolder(row: DataTableItem): DataTableItem[]{
+    new Date()
+    const path =row.path
+    return [
+      { id: 1, name: 'Hydrogen', extension: 'txt',size:6565, path:'/home/me/papka', isFolder:true, time: new  Date},
+      { id: 2, name: 'Helium', extension: 'txt',size:6565, path:'/home/me/papka', isFolder:false, time: new  Date },
+      { id: 3, name: 'Lithium' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
+      { id: 4, name: 'Beryllium', extension: 'txt',size:6565, path:'/home/me/papka',isFolder:false , time: new  Date},
+      { id: 5, name: 'Boron' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
+      { id: 6, name: 'Carbon' , extension: 'txt',size:6565, path:'/home/me/papka',isFolder:false, time: new  Date},
+      { id: 7, name: 'Nitrogen' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
+      { id: 8, name: 'Oxygen' , extension: 'txt',size:6565, path:'/home/me/papka',isFolder:false, time: new  Date},
+      { id: 9, name: 'Fluorine' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
+      { id: 10, name: 'Neon', extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false , time: new  Date},
+    ];
+  }
   private getPagedData(data: DataTableItem[]): DataTableItem[] {
     if (this.paginator) {
       const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
@@ -108,6 +129,7 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
     });
   }
 }
+
 
 /** Simple sort comparator for example ID/Name columns (for client-side sorting). */
 function compare(a: string | number, b: string | number, isAsc: boolean): number {
