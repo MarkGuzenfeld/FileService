@@ -1,4 +1,6 @@
 import { Component, EventEmitter } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { UploadWindowComponent } from '../upload-window/upload-window.component';
 
 @Component({
   selector: 'app-buttons',
@@ -6,20 +8,13 @@ import { Component, EventEmitter } from '@angular/core';
   styleUrls: ['./buttons.component.css']
 })
 export class ButtonsComponent {
-deleteOne = new EventEmitter<any>();
-delete($event: MouseEvent){
-  console.log('Working delete');
-}
-AddOne = new EventEmitter<any>();
-add($event: MouseEvent){
-  console.log('Working add');
-}
-MoveOne = new EventEmitter<any>();
-move($event: MouseEvent){
-  console.log('Working move');
-}
-CopyOne = new EventEmitter<any>();
-copy($event: MouseEvent){
-  console.log('Working copy');
+constructor( private dialog: MatDialog) {}
+openDialog(){
+this.dialog.open(UploadWindowComponent, {
+  height: '300px',
+  width: '500px'
+})
+
+  
 }
 }

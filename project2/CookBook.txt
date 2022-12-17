@@ -128,12 +128,83 @@ delete($event: MouseEvent){
     ИНАЧЕ РАБОТАТЬ НЕ БУДЕТ
 
 
-  17. Создаем навигационное меню ng g c navigation
+  17. Создаем навигационное меню ng g c navigation (НЕ РАЗОБРАЛСЯ КАК СДЕЛАТЬ)
 
   18. В HTML: 
  
   <div>
     <button mat-button><mat-icon>home</mat-icon></button>
   </div>
-  
+  19. Создаем директорию для Диалогового окна
+  ** ng g c uploadWindow **
+
+  20. Задаем параметры в upload-window.component.ts 
+  *************************************************
+    constructor(@Inject(MAT_DIALOG_DATA)public path:string){
+}
+
+
+ngOnInit(): void {
+}
+****************************************************
+21. В Buttons.Component.ts задаем constructor и функцию
+*****************************************
+constructor( private dialog: MatDialog) {}
+openDialog(){
+this.dialog.open(UploadWindowComponent, {
+  height: '300px',
+  width: '500px'
+})
+*****************************************
+22. в HTML файле buttons задаем через онклик функцию 
+
+ <button mat-raised-button color="accent" (click)="openDialog()" >Upload</button>
+
+ 23. В файле uploadWindow.ts создаем 
+ 
+  @ViewChild('input')
+  fileInput!: any
+
+  24. Пишем функцию 
+
+  titles(){
+  this.titlesArr = []
+
+  const files = this.fileInput.nativeElement.files
+  if (files){
+    for(let i = 0; i < files.length; i++){
+      const file = files[i];
+      const name = file.name;
+      this.titlesArr.push(name)
+      
+    }
+  }
+}
+
+25. создаем 
+
+  titlesArr!: string[]
+
+26. Импортируем toolbar и в хайле uploadWindow.html Пишем
+
+<div>
+    <mat-toolbar>
+        <div class="spacer"></div>
+        <button mat-button>
+            Back
+        </button> 
+        
+        <button mat-raised-button color="primary">
+            Upload
+        </button>
+    </mat-toolbar>
+    <input #input type="file" (change)="titles()" multiple hidden>
+    <button mat-button (click)="input.click()">Upload files</button>
+    <p *ngFor="let name of titlesArr">{{name}}</p>
+</div>
+
+27. .......
+
+28. не разобрался с навигационным меню
+29. не разобрался с добавлением папок. Но может еще разберусь
   ПОКА ВСЁ РАБОТАЕТ! (:)

@@ -13,7 +13,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { NavigationComponent } from './navigation/navigation.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { UploadWindowComponent } from './upload-window/upload-window.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 
@@ -23,6 +25,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     DataTableComponent,
     ButtonsComponent,
     NavigationComponent,
+    UploadWindowComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     MatButtonModule,
     MatIconModule,
     MatCheckboxModule,
+    MatDialogModule,
+    MatToolbarModule
     
   ],
   providers: [],

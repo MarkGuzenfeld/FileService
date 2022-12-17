@@ -1,0 +1,15 @@
+<div>
+    <mat-toolbar>
+        <div class="spacer"></div>
+        <button mat-button>
+            Back
+        </button> 
+        
+        <button mat-raised-button color="primary">
+            Upload
+        </button>
+    </mat-toolbar>
+    <input #input type="file" (change)="titles()" multiple hidden>
+    <button mat-button (click)="input.click()">Upload files</button>
+    <p *ngFor="let name of titlesArr">{{name}}</p>
+</div>
