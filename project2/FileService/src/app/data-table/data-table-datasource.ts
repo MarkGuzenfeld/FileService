@@ -59,8 +59,11 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
   openFile( row: DataTableItem){
+    console.log(1)
+    console.log(row.isFolder)
+
    if (row.isFolder){
-     return this.dataS
+     return this.data = this.dataS
    } else{
     return []
    }
@@ -101,22 +104,22 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
    * this would be replaced by requesting the appropriate data from the server.
  */
 
-  // public openFolder(row: DataTableItem): DataTableItem[]{
-  //   new Date()
-  //   const path =row.path
-  //   return [
-  //     { id: 1, name: 'Hydrogen', extension: 'txt',size:6565, path:'/home/me/papka', isFolder:true, time: new  Date},
-  //     { id: 2, name: 'Helium', extension: 'txt',size:6565, path:'/home/me/papka', isFolder:false, time: new  Date },
-  //     { id: 3, name: 'Lithium' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
-  //     { id: 4, name: 'Beryllium', extension: 'txt',size:6565, path:'/home/me/papka',isFolder:false , time: new  Date},
-  //     { id: 5, name: 'Boron' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
-  //     { id: 6, name: 'Carbon' , extension: 'txt',size:6565, path:'/home/me/papka',isFolder:false, time: new  Date},
-  //     { id: 7, name: 'Nitrogen' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
-  //     { id: 8, name: 'Oxygen' , extension: 'txt',size:6565, path:'/home/me/papka',isFolder:false, time: new  Date},
-  //     { id: 9, name: 'Fluorine' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
-  //     { id: 10, name: 'Neon', extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false , time: new  Date},
-  //   ];
-  // }
+  public openFolder(row: DataTableItem): DataTableItem[]{
+    new Date()
+    const path =row.path
+    return [
+      { id: 1, name: 'Hydrogen', extension: 'txt',size:6565, path:'/home/me/papka', isFolder:true, time: new  Date},
+      { id: 2, name: 'Helium', extension: 'txt',size:6565, path:'/home/me/papka', isFolder:false, time: new  Date },
+      { id: 3, name: 'Lithium' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
+      { id: 4, name: 'Beryllium', extension: 'txt',size:6565, path:'/home/me/papka',isFolder:false , time: new  Date},
+      { id: 5, name: 'Boron' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
+      { id: 6, name: 'Carbon' , extension: 'txt',size:6565, path:'/home/me/papka',isFolder:false, time: new  Date},
+      { id: 7, name: 'Nitrogen' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
+      { id: 8, name: 'Oxygen' , extension: 'txt',size:6565, path:'/home/me/papka',isFolder:false, time: new  Date},
+      { id: 9, name: 'Fluorine' , extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false, time: new  Date},
+      { id: 10, name: 'Neon', extension: 'txt',size:6565,path:'/home/me/papka', isFolder:false , time: new  Date},
+    ];
+  }
   private getPagedData(data: DataTableItem[]): DataTableItem[] {
     if (this.paginator) {
       const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
