@@ -1,7 +1,9 @@
+import { DataSource } from '@angular/cdk/collections';
 import { AfterViewInit, Component, EventEmitter, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { Observable, Subject } from 'rxjs';
 //import { DataTableDataSource, DataTableItem } from './data-table-datasource';
 
 // TODO: Replace this with your own data model type
@@ -47,6 +49,19 @@ DataTableItem[] = [
 })
 
 export class DataTableComponent implements AfterViewInit {
+  
+  
+  returnToHome = new Subject<DataTableComponent>();
+  homeGoBack(): Observable<DataTableComponent>{
+    return this.returnToHome.asObservable();
+  //   // this.returnToHome.next(this);
+
+  }
+  
+  
+
+
+
  // @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<DataTableItem>;
@@ -64,7 +79,11 @@ export class DataTableComponent implements AfterViewInit {
  
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = [ 'choose', 'icon', 'path','id', 'name', 'extension','size','time'];
+  
   constructor() {
+    
+
+  
   }
   
   ngAfterViewInit(): void {

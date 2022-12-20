@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Data } from '@angular/router';
+import { Observable } from 'rxjs';
+import { DataTableComponent } from '../data-table/data-table.component';
+
 
 @Component({
   selector: 'app-navigation',
@@ -7,4 +11,12 @@ import { Component } from '@angular/core';
 })
 export class NavigationComponent {
 
+constructor (private DataTableComponent: DataTableComponent){
+  this.DataTableComponent.homeGoBack().subscribe(()=>{
+    
+  })
+  
 }
+}
+
+
