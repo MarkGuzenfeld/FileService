@@ -18,10 +18,6 @@ public class FileCintroller {
     
 
     @GetMapping
-    Collection<FileDTO> getRootFiles(){
-        return null;
-    }
-    @GetMapping
     Collection<FileDTO> getInFolder(@PathVariable("path") String path){
         return null;
     }
