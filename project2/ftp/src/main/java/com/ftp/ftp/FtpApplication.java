@@ -11,3 +11,4 @@ public class FtpApplication {
 	}
 
 }
+// Проверка куда эито всё загшружается
