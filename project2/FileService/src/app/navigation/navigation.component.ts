@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Data } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
 import { DataTableComponent } from '../data-table/data-table.component';
 
 
@@ -11,12 +11,17 @@ import { DataTableComponent } from '../data-table/data-table.component';
 })
 export class NavigationComponent {
 
-constructor (private DataTableComponent: DataTableComponent){
-  this.DataTableComponent.homeGoBack().subscribe(()=>{
-    
-  })
+  constructor (private DataTableComponent: DataTableComponent){
+  this.DataTableComponent.homeGoBAck().subscribe(() => {
+    console.log('skdn');
+  });
+  this.DataTableComponent.retutnToHome.next('');
   
-}
+// }
+// next() {
+//   this.DataTableComponent.retutnToHome.next('');
+// }
+
 }
 
-
+}

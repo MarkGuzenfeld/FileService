@@ -3,7 +3,7 @@ import { AfterViewInit, Component, EventEmitter, ViewChild } from '@angular/core
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { Observable, Subject } from 'rxjs';
+import { Observable, of, Subject, Subscription } from 'rxjs';
 //import { DataTableDataSource, DataTableItem } from './data-table-datasource';
 
 // TODO: Replace this with your own data model type
@@ -50,23 +50,17 @@ DataTableItem[] = [
 
 export class DataTableComponent implements AfterViewInit {
   
-  
-  returnToHome = new Subject<DataTableComponent>();
-  homeGoBack(): Observable<DataTableComponent>{
-    return this.returnToHome.asObservable();
-  //   // this.returnToHome.next(this);
-
+  retutnToHome = new Subject<string>();
+  homeGoBAck(): Observable<string>{
+    return this.retutnToHome.asObservable();
   }
-  
-  
-
-
+  // ЭТо 100% написано верно
 
  // @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<DataTableItem>;
   dataSource = new MatTableDataSource(EXAMPLE_DATA);
-  // dataSource2 = new MatTableDataSource(EXAMPL_DATA);
+  dataSource2 = new MatTableDataSource(EXAMPL_DATA);
   
   openFile( row: DataTableItem){
     console.log(row.isFolder)
@@ -82,10 +76,10 @@ export class DataTableComponent implements AfterViewInit {
   
   constructor() {
     
-
+     
   
   }
-  
+ 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     //this.dataSource.paginator = this.paginator;
