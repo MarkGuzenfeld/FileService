@@ -11,11 +11,11 @@ import { DataTableComponent } from '../data-table/data-table.component';
 })
 export class NavigationComponent {
 
-  // constructor (private DataTableComponent: DataTableComponent){
-  // this.DataTableComponent.homeGoBAck().subscribe(() => {
-  //   console.log('skdn');
-  // });
-  // this.DataTableComponent.retutnToHome.next('');
+  //   constructor (private DataTableComponent: DataTableComponent){
+//   this.DataTableComponent.homeGoBAck().subscribe(()=>{
+//     return this.retutnToHome.asObservable();
+//   })
+//   this.DataTableComponent.retutnToHome.next('');
   
 // }
 // next() {
