@@ -51,6 +51,7 @@ DataTableItem[] = [
 export class DataTableComponent implements AfterViewInit {
   
   retutnToHome = new Subject<string>();
+  httpClient: any;
   homeGoBAck(): Observable<string>{
     return this.retutnToHome.asObservable();
   }
@@ -66,6 +67,14 @@ export class DataTableComponent implements AfterViewInit {
     console.log(row.isFolder)
    if (row.isFolder){
      return this.dataSource.data = EXAMPL_DATA;
+    //  ************************************************************
+    //  return this.httpClient.get<any[]>("http://127.0.0.1:8081/file").subscribe(data => {
+    //   for (const datum of data){
+    //     console.log(datum);
+        
+    //   }
+    // })
+    // *************************************************************
    } else{
     return []
    }
