@@ -50,11 +50,11 @@ DataTableItem[] = [
 
 export class DataTableComponent implements AfterViewInit {
   
-  retutnToHome = new Subject<string>();
-  httpClient: any;
-  homeGoBAck(): Observable<string>{
-    return this.retutnToHome.asObservable();
-  }
+  // retutnToHome = new Subject<string>();
+  // httpClient: any;
+  // homeGoBAck(): Observable<string>{
+  //   return this.retutnToHome.asObservable();
+  // }
   // ЭТо 100% написано верно
 
  // @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -85,10 +85,8 @@ export class DataTableComponent implements AfterViewInit {
   
   constructor() {
     
-     
-  
   }
- 
+
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     //this.dataSource.paginator = this.paginator;

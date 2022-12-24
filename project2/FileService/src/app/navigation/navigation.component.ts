@@ -11,7 +11,16 @@ import { DataTableComponent } from '../data-table/data-table.component';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent {
-   
+  sub: Subscription | undefined
+  stream$: Subject<number>= new Subject<number>();
+  constructor() {
+    this.sub = this.stream$.subscribe( value =>{
+      console.log('asd', value); 
+    })
+  }
+ next (){
+  this.stream$.next;
+ }
 
 //     constructor (private DataTableComponent: DataTableComponent){
 //   this.DataTableComponent.homeGoBAck().subscribe(()=>{
