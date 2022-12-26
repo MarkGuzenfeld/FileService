@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,12 +34,12 @@ public class FileCintroller {
     // Создаем объект логгера и  инициализируем его с FileController
     // Логгер используется для записи сообщений лога в различные места, такие как файл, консоль, база данных и т.д. Обычно логгер используется для отслеживания состояния приложения, отладки проблем и отслеживания ошибок.
     @GetMapping
-    Collection<FileDTO> getRootFiles(@RequestParam(required = false) String path){
+    Collection<FileDTO> rootFiles(@RequestParam(required = false) String path){
         logger.info("getRootFiles");
         return null;
     }
     @PostMapping
-    ResponseEntity<FileDTO> upload(@RequestBody MultipartFile multypartFile){
+    ResponseEntity<FileDTO> upload(@RequestParam MultipartFile multypartFile){
         logger.info("upload{}", multypartFile.getName());
         return ResponseEntity.ok().build();
         // В теле метода вызывается метод logger.info(), который записывает сообщение в лог с уровнем info. В качестве аргумента передается строка с именем файла, полученного из объекта MultipartFile.
