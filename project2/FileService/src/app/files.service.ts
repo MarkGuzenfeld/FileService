@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { DataTableComponent, DataTableItem } from './data-table/data-table.component';
 
 
 export interface File {
@@ -10,11 +11,15 @@ export interface File {
   providedIn: 'root'
 })
 export class FilesService {
-  data = new Subject<any>();
-  // Метод для получения данных (подписка на Subject)
-  getData(): Observable<any> {
-    return this.data.asObservable();
+  subject = new Subject<number>();
+  constructor(){
+    this.subject.subscribe(() => {
+      return 123
+      
+    });
   }
-}
+  }
+
+
 
 

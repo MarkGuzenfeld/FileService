@@ -49,19 +49,14 @@ DataTableItem[] = [
 })
 
 export class DataTableComponent implements AfterViewInit {
-  
-  // retutnToHome = new Subject<string>();
-  // httpClient: any;
-  // homeGoBAck(): Observable<string>{
-  //   return this.retutnToHome.asObservable();
-  // }
-  // ЭТо 100% написано верно
+ 
 
  // @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<DataTableItem>;
   dataSource = new MatTableDataSource(EXAMPLE_DATA);
-  dataSource2 = new MatTableDataSource(EXAMPL_DATA);
+  // dataSource2 = new MatTableDataSource(EXAMPL_DATA);
+ 
   
   openFile( row: DataTableItem){
     console.log(row.isFolder)
@@ -83,9 +78,7 @@ export class DataTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = [ 'choose', 'icon', 'path','id', 'name', 'extension','size','time'];
   
-  constructor() {
-    
-  }
+ 
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
