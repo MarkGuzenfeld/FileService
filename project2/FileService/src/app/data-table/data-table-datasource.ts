@@ -58,6 +58,7 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
   dataS: DataTableItem[] = EXAMPL_DATA;
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
+  subject: any;
   openFile( row: DataTableItem){
     console.log(1)
     console.log(row.isFolder)

@@ -3,7 +3,7 @@ import { AfterViewInit, Component, EventEmitter, ViewChild } from '@angular/core
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { Observable, of, Subject, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject, Subscription } from 'rxjs';
 //import { DataTableDataSource, DataTableItem } from './data-table-datasource';
 
 // TODO: Replace this with your own data model type
@@ -56,7 +56,8 @@ export class DataTableComponent implements AfterViewInit {
   @ViewChild(MatTable) table!: MatTable<DataTableItem>;
   dataSource = new MatTableDataSource(EXAMPLE_DATA);
   // dataSource2 = new MatTableDataSource(EXAMPL_DATA);
- 
+
+  constructor() { }
   
   openFile( row: DataTableItem){
     console.log(row.isFolder)

@@ -16,6 +16,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { UploadWindowComponent } from './upload-window/upload-window.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -39,7 +40,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatIconModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule
     
   ],
   providers: [],
