@@ -1,6 +1,5 @@
 package com.ftp.ftp;
 
-import java.io.File;
 import java.util.List;
 
 import jakarta.validation.constraints.NotNull;
@@ -9,5 +8,5 @@ import jakarta.validation.constraints.NotNull;
 public interface FileService {
 
 
-    File[] getFiles(@NotNull String path);
+    List<FileDTO> getFiles(@NotNull String path);
 }

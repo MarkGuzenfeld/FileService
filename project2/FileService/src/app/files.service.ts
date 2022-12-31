@@ -21,13 +21,13 @@ export class FilesService {
   dataSource: any;
   constructor(){//private http: HttpClient
     this.subject.subscribe(() => {
-      console.log('asd');
+      console.log('asdфыва');
       return 
       // this.http.get<any[]>("http://127.0.0.1:8081/file").subscribe(data => {
       // for (const datum of data){
       //   console.log(datum);
 
-      
+    
       // HTTP-запрос GET через объект HttpClient для получения данных с сервера. Метод get() принимает в качестве параметра URL-адрес сервера, на который отправляется запрос, а также тип ожидаемого ответа. В данном случае это тип any[], то есть массив объектов. В блоке subscribe() определена функция обратного вызова, которая выполняется при получении ответа с сервера
     });
   }

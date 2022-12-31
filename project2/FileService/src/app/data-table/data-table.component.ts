@@ -1,4 +1,5 @@
 import { DataSource } from '@angular/cdk/collections';
+import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, EventEmitter, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -50,18 +51,20 @@ DataTableItem[] = [
 
 export class DataTableComponent implements AfterViewInit {
  
-
+  constructor(private http: HttpClient ) { }
+  getData(){
+    return this.http.get('http://127.0.0.1:8081/file')
+  }
  // @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<DataTableItem>;
   dataSource = new MatTableDataSource(EXAMPLE_DATA);
-  // dataSource2 = new MatTableDataSource(EXAMPL_DATA);
+  dataSource2 = this.http.get('http://127.0.0.1:8081/file');
 
-  constructor() { }
-  
   openFile( row: DataTableItem){
     console.log(row.isFolder)
    if (row.isFolder){
+    // return this.
      return this.dataSource.data = EXAMPL_DATA;
     //  ************************************************************
     //  return this.httpClient.get<any[]>("http://127.0.0.1:8081/file").subscribe(data => {

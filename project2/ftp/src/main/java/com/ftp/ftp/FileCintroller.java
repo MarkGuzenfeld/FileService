@@ -1,6 +1,5 @@
 package com.ftp.ftp;
 
-import java.io.File;
 // import java.lang.System.Logger;
 import java.util.Collection;
 
@@ -35,22 +34,22 @@ public class FileCintroller {
     // Создаем объект логгера и  инициализируем его с FileController
     // Логгер используется для записи сообщений лога в различные места, такие как файл, консоль, база данных и т.д. Обычно логгер используется для отслеживания состояния приложения, отладки проблем и отслеживания ошибок.
     @GetMapping
-    File[] rootFiles(@RequestParam(required = false) String path){
+    Collection<FileDTO> rootFiles(@RequestParam(value = "path",required = false) String path){
         logger.info("getRootFiles");
-        return fileService.getFiles(path);
+        return null;
     }
-    // @PostMapping
-    // ResponseEntity<FileDTO> upload(@RequestParam MultipartFile multypartFile){
-    //     logger.info("upload{}", multypartFile.getName());
-    //     return ResponseEntity.ok().build();
+    @PostMapping
+    ResponseEntity<FileDTO> upload(@RequestParam MultipartFile multypartFile){
+        logger.info("upload{}", multypartFile.getName());
+        return ResponseEntity.ok().build();
         // В теле метода вызывается метод logger.info(), который записывает сообщение в лог с уровнем info. В качестве аргумента передается строка с именем файла, полученного из объекта MultipartFile.
         // В конце метода возвращается объект типа ResponseEntity, который представляет HTTP-ответ. Метод ok() создает новый объект ResponseEntity со статусом 200 OK
-    // }
-    // @DeleteMapping("/{path}")
-    // FileDTO delete(@PathVariable("path") String path){
-    //     logger.info("delete {}", path);
-    //     return null;
-    // }
+    }
+    @DeleteMapping("/{path}")
+    FileDTO delete(@PathVariable("path") String path){
+        logger.info("delete {}", path);
+        return null;
+    }
 }
 // Класс FileController содержит четыре метода: getRootFiles, getInFolder, upload и delete. Каждый из этих методов объявлен с помощью специализированных аннотаций, которые указывают на тип обрабатываемого запроса:
 

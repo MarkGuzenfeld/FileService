@@ -8,8 +8,8 @@ import java.util.List;
 @Service
 public class LocalFileService implements FileService{
     @Override
-    public File[] getFiles(String path){
-        return new File(path).listFiles();
+    public List<FileDTO> getFiles(String path){
+        return null;
     }
 }
 
