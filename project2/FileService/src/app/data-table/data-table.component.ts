@@ -50,11 +50,15 @@ DataTableItem[] = [
 })
 
 export class DataTableComponent implements AfterViewInit {
- 
-  constructor(private http: HttpClient ) { }
-  getData(){
-    return this.http.get('http://127.0.0.1:8081/file')
+  constructor(private http: HttpClient ) { 
+    this.http.get('http://127.0.0.1:8081/file').subscribe(data=>{
+      console.log(data);
+      
+    })
   }
+  // getData(){
+  //   return this.http.get('http://127.0.0.1:8081/file')
+  // }
  // @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<DataTableItem>;
