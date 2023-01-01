@@ -19,7 +19,9 @@ import { DataTableDataSource } from '../data-table/data-table-datasource';
       this.FilesService.subject.next(" ")
     }
   constructor(private FilesService: FilesService){
-
+  }
+  ngOnInit(): void {
+    this.FilesService
   }
   }
     

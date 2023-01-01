@@ -12,7 +12,7 @@ import { FilesService, FileData } from '../files.service';
 export class TableComponent {
   dataSource = new MatTableDataSource<FileData>();
   columns: string[] = ['choose', 'icon', 'name', 'path', 'creationDate', 'id', 'size', 'extension'];
-
+  datasourse!:any
 
   constructor(public filesService: FilesService) {
     this.dataSource.data = this.filesService.FileList();
@@ -22,10 +22,11 @@ export class TableComponent {
     this.dataSource.data = this.filesService.openFile(row);
     this.dataSource._updateChangeSubscription();
   }
-  
-  
-  
-  action() {
-    this.filesService
+  ngOnInit(): void {
+    this.filesService.subscribeAtFolder().subscribe((files)=> this.datasourse = files)
+  }
+  tableOne(){
+    console.log('up');
+    this.datasourse = this.filesService.FileList()
   }
 }

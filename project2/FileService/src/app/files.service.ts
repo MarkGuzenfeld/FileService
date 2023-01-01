@@ -23,7 +23,16 @@ isFolder: boolean
 })
 
 export class FilesService {
-  
+  fileSubject = new Subject<FileData[]>()
+
+  subscribeAtFolder(): Observable<FileData[]>{
+   return this.fileSubject.asObservable();
+  }
+
+
+
+
+
 FileList(): FileData[]{
   this.http.get<any[]>("http://localhost:8081/user").subscribe(data => {
     for (const datun of data){
@@ -57,6 +66,7 @@ public openFolder(row: FileData): FileData[]{
     {name: 'file_12345',path:path + '/file_12345',creationDate: date,id: 1,size: 999,extension: 'txt',isFolder: false},
     {name: 'file_12345',path:path + '/file_12345',creationDate: date,id: 1,size: 999,extension: 'txt',isFolder: false},
   ]
+  
 }
  
   openSpring(){
@@ -66,7 +76,7 @@ public openFolder(row: FileData): FileData[]{
   constructor(private http: HttpClient){//private http: HttpClient
     this.subject.subscribe(() => {
       console.log('asdфыва');
-      return 
+      return this.openFolder
       // this.http.get<any[]>("http://127.0.0.1:8081/file").subscribe(data => {
       // for (const datum of data){
       //   console.log(datum);
