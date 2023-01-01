@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 //@RestController это аннотация, которая используется в языке Java в связке с библиотекой Spring Framework. Она указывает, что класс, к которому применена эта аннотация, является контроллером, который обрабатывает HTTP-запросы.
 
 @RestController 
-@RequestMapping("/file")
+@RequestMapping("/user")
 @CrossOrigin(value = "http://localhost:4200/")
 public class FileCintroller {
     

@@ -17,6 +17,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { UploadWindowComponent } from './upload-window/upload-window.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
+import { ProverkaComponent } from './proverka/proverka.component';
 
 
 
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     ButtonsComponent,
     NavigationComponent,
     UploadWindowComponent,
+    ProverkaComponent,
   ],
   imports: [
     BrowserModule,
