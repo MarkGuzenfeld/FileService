@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { FilesService } from './files.service';
 
 @Component({
@@ -8,13 +9,15 @@ import { FilesService } from './files.service';
 })
 export class AppComponent {
   title = 'FTP Server';
+  dataSource = new MatTableDataSource();
+  columns: string[] = ['name', 'path', 'creationDate', 'id', 'size'];
 
-  constructor(private fileService: FilesService){
-
+  constructor(private filesService: FilesService) {
+    this.dataSource.data = this.filesService.FileList();
   }
 
   action() {
-    this.fileService
+    this.filesService
   }
 
 }

@@ -16,11 +16,11 @@ export class ProverkaComponent {
     this.http.get<any>('http://127.0.0.1:8081/user').subscribe(
       {
         next:((response: any) => {
-          // console.log(response);
-          console.log(response.name);
-          console.log(response.path);
-          console.log(response.creationDate);
-          console.log(response.isFolder);
+       
+          
+          // return this.httpClient.get<any[]>("http://127.0.0.1:8081/file").subscribe(data => {
+          //   for (const datum of data){
+          //     console.log(datum);
           
         }),
         error: (error => {

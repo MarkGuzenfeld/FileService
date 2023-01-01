@@ -18,6 +18,7 @@ import { UploadWindowComponent } from './upload-window/upload-window.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
 import { ProverkaComponent } from './proverka/proverka.component';
+import { TableComponent } from './table/table.component';
 
 
 
@@ -30,6 +31,7 @@ import { ProverkaComponent } from './proverka/proverka.component';
     NavigationComponent,
     UploadWindowComponent,
     ProverkaComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
