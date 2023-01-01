@@ -36,7 +36,7 @@ public class FileCintroller {
     @GetMapping
     Collection<FileDTO> rootFiles(@RequestParam(value = "path",required = false) String path){
         logger.info("getRootFiles");
-        return null;
+        return fileService.getFiles(path);
     }
     @PostMapping
     ResponseEntity<FileDTO> upload(@RequestParam MultipartFile multypartFile){

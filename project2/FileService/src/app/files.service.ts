@@ -23,6 +23,9 @@ isFolder: boolean
 })
 
 export class FilesService {
+  qsubject = new Subject<any>();
+
+
   fileSubject = new Subject<FileData[]>()
 
   subscribeAtFolder(): Observable<FileData[]>{
