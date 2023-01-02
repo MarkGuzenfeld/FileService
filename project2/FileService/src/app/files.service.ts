@@ -37,7 +37,7 @@ export class FilesService {
 
 
 FileList(): FileData[]{
-  this.http.get<any[]>("http://localhost:8081/user").subscribe(data => {
+  this.http.get<any[]>("http://localhost:8081").subscribe(data => {
     for (const datun of data){
       console.log(datun);
     }
@@ -79,7 +79,7 @@ public openFolder(row: FileData): FileData[]{
   constructor(private http: HttpClient){//private http: HttpClient
     this.subject.subscribe(() => {
       console.log('asdфыва');
-      return this.openFolder
+   
       // this.http.get<any[]>("http://127.0.0.1:8081/file").subscribe(data => {
       // for (const datum of data){
       //   console.log(datum);

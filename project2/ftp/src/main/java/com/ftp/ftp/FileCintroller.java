@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController 
 @RequestMapping("/user")
-@CrossOrigin(value = "http://localhost:4200/")
+@CrossOrigin("http://localhost:4200")
 public class FileCintroller {
     
     FileService fileService;
@@ -33,7 +33,7 @@ public class FileCintroller {
     public static org.slf4j.Logger logger = LoggerFactory.getLogger("FileCintroller");
     // Создаем объект логгера и  инициализируем его с FileController
     // Логгер используется для записи сообщений лога в различные места, такие как файл, консоль, база данных и т.д. Обычно логгер используется для отслеживания состояния приложения, отладки проблем и отслеживания ошибок.
-    @GetMapping
+    @GetMapping()
     Collection<FileDTO> rootFiles(@RequestParam(value = "path",required = false) String path){
         logger.info("getRootFiles");
         return fileService.getFiles(path);

@@ -17,7 +17,7 @@ import { DataTableDataSource } from '../data-table/data-table-datasource';
     public dataSubscription: Subscription | undefined;
 
     getData(){  
-      this.FilesService.qsubject.next(" asd")
+      this.FilesService.qsubject.next("")
     }
   constructor(private FilesService: FilesService){
   }
