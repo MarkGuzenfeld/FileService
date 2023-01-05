@@ -10,23 +10,46 @@ import { FilesService, FileData } from '../files.service';
 })
 
 export class TableComponent {
-  dataSource = new MatTableDataSource<FileData>();
-  columns: string[] = ['choose', 'icon', 'name', 'path', 'creationDate', 'id', 'size', 'extension'];
-  datasourse!:any
+  dataSource = new MatTableDataSource<any>();
 
-  constructor(public filesService: FilesService) {
-    this.dataSource.data = this.filesService.FileList();
-    this.dataSource._updateChangeSubscription();
+  columns: string[] = ['choose', 'icon', 'name', 'path', 'creationDate', 'id', 'size', 'extension'];
+
+
+  constructor(public filesService: FilesService) { }
+  
+  
+  ngOnInit() {
+    this.filesService.subscribeAtFolder().subscribe(data => {
+      this.dataSource.data = data;
+      this.filesService.folderSubject.subscribe(path => {
+        console.log(`Папка ${path} открыта`);
+      });
+      
+    });
   }
+ 
+  
   openFile(row: FileData) {
-    this.dataSource.data = this.filesService.openFile(row);
-    this.dataSource._updateChangeSubscription();
+    if (row.isFolder) {
+      console.log('true');
+      
+      this.filesService.folderSubject.subscribe(path => {
+        console.log(`Папка ${path} открыта`);
+      });
+    } else {
+      console.log('false');
+      
+      // Обрабатываем нажатие на файл
+    }
   }
-  ngOnInit(): void {
-    this.filesService.subscribeAtFolder().subscribe((files)=> this.datasourse = files)
-  }
-  tableOne(){
-    console.log('up');
-    this.datasourse = this.filesService.FileList()
+ 
+  
+  
+  
+  
+  
+
+  refreshTable() {
+    this.filesService.fileList();
   }
 }

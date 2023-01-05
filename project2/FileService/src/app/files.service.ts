@@ -23,71 +23,65 @@ isFolder: boolean
 })
 
 export class FilesService {
+
+  constructor(private http: HttpClient){//private http: HttpClient
+   
+  }
+
+
+  qsubject = new Subject<any>();
+
+  folderSubject = new Subject<FileData[]>();
   fileSubject = new Subject<FileData[]>()
 
   subscribeAtFolder(): Observable<FileData[]>{
    return this.fileSubject.asObservable();
   }
 
-
-
-
-
-FileList(): FileData[]{
-  this.http.get<any[]>("http://localhost:8081/user").subscribe(data => {
-    for (const datun of data){
-      console.log(datun);
+  
+  public convert(data: any): FileData{
+    return {
+      name: data.name,
+      path: data.path,
+      creationDate: new Date(data.creationDate),
+      id: data.id,
+      size: data.size,
+      extension: data.extension,
+      isFolder: data.isFolder,
     }
+  }
+
+
+fileList(){
+  this.http.get<any[]>("http://localhost:8081/").subscribe(data => {
+    this.fileSubject.next(data.map(data => this.convert(data)))
   })
-  let date = new Date()
-  return [
-    {name: 'file', path: '/home/papka', creationDate: date, id: 1, size: 999, extension: 'txt', isFolder: true},
-    {name: 'file', path: '/home/papka', creationDate: date, id: 1, size: 999, extension: 'txt', isFolder: false},
-    {name: 'file', path: '/home/papka', creationDate: date, id: 1, size: 999, extension: 'txt', isFolder: false},
-    {name: 'file', path: '/home/papka', creationDate: date, id: 1, size: 999, extension: 'txt', isFolder: false},
-    {name: 'file', path: '/home/papka', creationDate: date, id: 1, size: 999, extension: 'txt', isFolder: false},
+}
+openFile(path: string): Observable<FileData[]> {
+  return this.http.get<FileData[]>(`http://localhost:8081?path=${path}`);
+}
 
-  ]
+
 }
-openFile(row: FileData):FileData[]{
-  if (row.isFolder) {
-    console.log('true');
-    return this.openFolder(row)
-  }
-  else{
-    console.log('false');
-    return[];
-  }
-}
-public openFolder(row: FileData): FileData[]{
-  let date = new Date();
-  const path = row.path;
-  return [
-    {name: 'file_12345',path:path + '/file_12345',creationDate: date,id: 1,size: 999,extension: 'txt',isFolder: false},
-    {name: 'file_12345',path:path + '/file_12345',creationDate: date,id: 1,size: 999,extension: 'txt',isFolder: false},
-  ]
+// openFile(path: string): Observable<FileData[]>{
+//   return this.http.get<FileData[]>(`http://localhost:8081?path=${path}`);
+// }
+// public openFolder(row: FileData){
+//   let date = new Date();
+//   const path = row.path;
+//   return [
+//     {name: 'file_12345',path:path + '/file_12345',creationDate: date,id: 1,size: 999,extension: 'txt',isFolder: false},
+//     {name: 'file_12345',path:path + '/file_12345',creationDate: date,id: 1,size: 999,extension: 'txt',isFolder: false},
+//   ];
+//   // this.fileSubject.next(files)
+// }
   
-}
- 
-  openSpring(){
-  }
-  subject = new Subject<string>();
-  dataSource: any;
-  constructor(private http: HttpClient){//private http: HttpClient
-    this.subject.subscribe(() => {
-      console.log('asdфыва');
-      return this.openFolder
-      // this.http.get<any[]>("http://127.0.0.1:8081/file").subscribe(data => {
-      // for (const datum of data){
-      //   console.log(datum);
 
-    
-      // HTTP-запрос GET через объект HttpClient для получения данных с сервера. Метод get() принимает в качестве параметра URL-адрес сервера, на который отправляется запрос, а также тип ожидаемого ответа. В данном случае это тип any[], то есть массив объектов. В блоке subscribe() определена функция обратного вызова, которая выполняется при получении ответа с сервера
-    });
-  }
-
-  }
+  // }
   
+
+
+
 
 
 

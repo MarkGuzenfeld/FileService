@@ -14,16 +14,23 @@ import { DataTableDataSource } from '../data-table/data-table-datasource';
   styleUrls: ['./navigation.component.css']
 })
   export class NavigationComponent {
-    
-    getData(){  
-      this.FilesService.subject.next(" ")
-    }
+    public dataSubscription: Subscription | undefined;
+
+    // getData(){  
+    //   this.FilesService.subject.next("")
+    // }
+    navElements!: String;
   constructor(private FilesService: FilesService){
+    // this.navElements = ["/", 'home', "folder"]
   }
   ngOnInit(): void {
-    this.FilesService
+    this.dataSubscription = this.FilesService.qsubject.asObservable().subscribe(data => {
+      console.log(data);
+      
+    });
   }
   }
     
+
 
 
