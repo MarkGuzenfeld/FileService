@@ -16,13 +16,15 @@ import { DataTableDataSource } from '../data-table/data-table-datasource';
   export class NavigationComponent {
     public dataSubscription: Subscription | undefined;
 
-    getData(){  
-      this.FilesService.qsubject.next("")
-    }
+    // getData(){  
+    //   this.FilesService.subject.next("")
+    // }
+    navElements!: String;
   constructor(private FilesService: FilesService){
+    // this.navElements = ["/", 'home', "folder"]
   }
   ngOnInit(): void {
-    this.dataSubscription = this.FilesService.subject.asObservable().subscribe(data => {
+    this.dataSubscription = this.FilesService.qsubject.asObservable().subscribe(data => {
       console.log(data);
       
     });

@@ -13,12 +13,10 @@ export class AppComponent {
   columns: string[] = ['name', 'path', 'creationDate', 'id', 'size'];
 
   constructor(private filesService: FilesService) {
-    this.dataSource.data = this.filesService.FileList();
+    this.filesService.fileList();
   }
 
-  action() {
-    this.filesService
-  }
+ 
 
 }
 

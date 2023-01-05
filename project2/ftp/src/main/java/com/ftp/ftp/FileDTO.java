@@ -8,7 +8,7 @@ public class FileDTO {
     private String path;
     private Date creationDate;
     private Number id;
-    private Number size;
+    private String size;
     private String extension;
     private boolean isFolder;
    
@@ -17,7 +17,7 @@ public class FileDTO {
     public String getName(){
         return name;
 }
-    public void setName(String name) {
+    public  void setName(String name) {
         this.name = name;
     }
 
@@ -42,10 +42,10 @@ public class FileDTO {
         this.id = id;
     }
 
-    public Number getSize(){
+    public String getSize(){
         return size;
-}
-    public void setSize(Number size) {
+    }
+    public void setSize(String size) {
         this.size = size;
     }
 
@@ -58,10 +58,11 @@ public class FileDTO {
     }
    
   
-    public boolean isFolder(){
+    public boolean isIsFolder(){
         return isFolder;
     }
-    public void setFolder(boolean folder){
+    public void setIsFolder(boolean folder){
         isFolder = folder;
     }
+    
 }
